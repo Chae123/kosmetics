@@ -1,5 +1,9 @@
-#carousel-example-generic {
-	width: 80%;
-	margin: auto;
+.carousel {
+	margin-top: -35px;
+	margin-left: -35px;
+	margin-right: -35px;
 }
 
+.carousel-caption {
+	text-transform: uppercase;
+}

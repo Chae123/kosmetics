@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-default {
+	background-color: #a6e0cc;
+}
+
+.navbar a {
+	text-transform: uppercase;
+}
+
+.navbar a:hover {
+	color: 	white;
+}
+
+.navbar .nav > li > a:hover {
+	color: 	white;
+}
