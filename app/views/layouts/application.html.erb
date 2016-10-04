@@ -15,6 +15,9 @@
 	</head>
 
 	<body data-spy="scroll" data-target="navbar-default">
+
+	<p class="notice"><%= notice %></p>
+
 	<!-- Nav -->
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
@@ -52,14 +55,24 @@
 						<%= submit_tag("Search", class: "btn btn-default") %>
 						<% end %>
 					</form>
+					<ul class="nav pull-right">
+					<li>
+					<% if user_signed_in? %>
+						<%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-xs btn-default") %>
+					<% else %>
+						<%= link_to('Login', new_user_session_path, class: "btn btn-xs btn-primary") %>
+					<% end %>
+					</li>
+					</ul>
 				</ul>
+
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
 
 	<%= yield %>
 
-	<footer class="navbar navbar-default">
+	<footer class="page-footer">
 		&copy; 2016 Chae
 	</footer>
 	</body>

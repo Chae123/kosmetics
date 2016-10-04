@@ -29,3 +29,12 @@
 .navbar .nav > li > a:hover {
 	color: 	white;
 }
+
+.page-footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	left: 0px;
+	background-color: #a6e0cc;
+	height: 45px;
+}
