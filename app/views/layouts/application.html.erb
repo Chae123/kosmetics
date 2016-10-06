@@ -61,12 +61,12 @@
 						<%= submit_tag("Search", class: "btn btn-default") %>
 						<% end %>
 					</form>
-					<ul class="nav pull-right">
+					<ul class="nav navbar-nav nabvar-right" id="nav_login_btn">
 					<li>
 					<% if user_signed_in? %>
-						<%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-xs btn-default") %>
+						<%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-sm btn-default") %>
 					<% else %>
-						<%= link_to('Login', new_user_session_path, class: "btn btn-xs btn-primary") %>
+						<%= button_to('Login', new_user_session_path, class: "btn btn-sm btn-primary") %>
 					<% end %>
 					</li>
 					</ul>
