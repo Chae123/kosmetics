@@ -1,8 +1,6 @@
 // Alert messages
 
 // Rating Stars
-
-
 $(document).on('turbolinks:load', function(){
 $('.rating').raty( {
     scoreName: 'comment[rating]',
