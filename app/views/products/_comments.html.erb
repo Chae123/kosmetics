@@ -2,9 +2,9 @@
 	<% @comments.each do |comment| %>
 		<div class="row">
 			<hr>
-			<p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></p>
-			<p><%= "Rating: #{comment.rating}/5" %></p>
-			<p><%= comment.body %></p>
+			<%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
+			<div class="rated" data-score="<%= comment.rating %>"></div>
+			<%= comment.body %>
 		</div>
 	<% end %>
 </div> 
