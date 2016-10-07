@@ -7,6 +7,7 @@
 		</div>
 		<div class="col-xs-6 col-md-6">
 			<h2><%= @product.name %></h2>
+			Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div>
 			$<%= @product.price %></br>
 			<strong>Size:</strong><%= @product.size %></br>
 			[Placeholder - ADD TO CART BUTTON]</br>
@@ -14,9 +15,9 @@
 			<div class="detailed_info">
 			<!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
-					<li role="presentation" ><a aria-controls="how_to" role="tab" data-toggle="tab">How to</a></li>
-					<li role="presentation" ><a aria-controls="ingredients" role="tab" data-toggle="tab">Ingredients</a></li>
+					<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+					<li role="presentation" ><a href="#how_to" aria-controls="how_to" role="tab" data-toggle="tab">How to</a></li>
+					<li role="presentation" ><a href="#ingredients" aria-controls="ingredients" role="tab" data-toggle="tab">Ingredients</a></li>
 				</ul>
 				<!-- Tab panes -->
 					<div class="tab-content">

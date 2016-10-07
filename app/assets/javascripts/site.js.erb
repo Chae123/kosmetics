@@ -18,3 +18,8 @@ starOn          : '<%= image_path('star-on.png') %>',
        }
    });
 });
+
+$('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
