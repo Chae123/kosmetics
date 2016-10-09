@@ -32,6 +32,9 @@
 		<div class="col-md-8">
 			<strong><%= render "comments/new_comment" %></strong>
 			<%= render "comments" %>
+			<% unless @comments.empty? %>
+  				<%= will_paginate @comments %>
+			<% end %>
 		</div>
 	</div>
 </div>
