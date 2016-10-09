@@ -40,9 +40,9 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><%= link_to "Best Seller", products_path %><span class="sr-only">(current)</span></a></li>
+					<li class="active"><%= link_to "BEST SELLER", products_path %><span class="sr-only">(current)</span></a></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Skin Care <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SKIN CARE <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Cleanser</a></li>
 							<li><a href="#">Face Moisturizer</a></li>
@@ -50,11 +50,11 @@
 							<li><a href="#">Face Mask</a></li>
 							<li><a href="#">Sheet Mask</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
+							<li><a href="#">All Products</a></li>
 						</ul>
 					</li>
-					<li><%= link_to "Our Brands", static_pages_brands_path %></li>
-					<li><%= link_to "About Us", static_pages_about_path %></li>
+					<li><%= link_to "OUR BRANDS", static_pages_brands_path %></li>
+					<li><%= link_to "ABOUTS US", static_pages_about_path %></li>
 					<form class="navbar-form navbar-left">
 						<%= form_tag("/products", method: "get") do %>
 						<%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search for:") %>

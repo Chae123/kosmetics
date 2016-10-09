@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009152939) do
+ActiveRecord::Schema.define(version: 20161009212316) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20161009152939) do
     t.text     "size"
     t.text     "how_to"
     t.text     "ingredients"
+    t.string   "category"
+    t.text     "brand"
   end
 
   create_table "users", force: :cascade do |t|

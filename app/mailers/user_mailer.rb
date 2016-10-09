@@ -14,4 +14,10 @@ class UserMailer < ApplicationMailer
 		@message = params[:message]
 		UserMailer.contact_form(@email, @name, @message).deliver_now
 	end
+
+	def welcome(user)
+		@appname = "Korean Cosmetics"
+		mail( :to => user.email,
+			:subject => "Welcome to #{@appname}!")
+	end
 end

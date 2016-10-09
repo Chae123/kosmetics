@@ -18,10 +18,6 @@
 	background-color: #a6e0cc;
 }
 
-.navbar a {
-	text-transform: uppercase;
-}
-
 .navbar a:hover {
 	color: 	white;
 }
