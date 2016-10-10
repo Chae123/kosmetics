@@ -59,3 +59,6 @@ gem 'cancancan', '~> 1.10'
 
 ## Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.1.1'
+
+# Gemfile for Active Admin
+# gem 'activeadmin', '~> 1.0.0.pre4'

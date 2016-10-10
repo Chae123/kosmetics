@@ -1,6 +1,12 @@
 <div class="col-sm-2 col-md-4">
-	<h4><%= product.name %></h4>
-	<p><%= product.description %></p>
-	<%= image_tag(product.image_url, class: "img-responsive") unless product.image_url.blank? %>
+	<%= link_to product do %>
+		<%= image_tag(product.image_url, class: "img-responsive") unless product.image_url.blank? %>
+	<% end %>
+	<h4><%= product.brand %>
+	<% if signed_in? && current_user.admin? %>
+		<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+	</h4>
+	<strong><%= product.name %></strong><br>
 	<strong>$<%= product.price %></strong>
 </div><!-- /col -->
