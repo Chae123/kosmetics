@@ -65,3 +65,5 @@ gem 'will_paginate', '~> 3.1.1'
 # Gemfile for Active Admin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+gem 'rails-controller-testing'
