@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
-	before_filter :authenticate_user!
 	before_action :authenticate_user!
 	load_and_authorize_resource # a helper method which will find the user, set the @user variable
 	# and check their abilities to make sure they can authorized to perform that action
