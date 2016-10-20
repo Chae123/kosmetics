@@ -35,6 +35,8 @@ group :development, :test do
 	gem 'sqlite3'
 	# rspec-rails is a testing framework for Rails 3.x, 4.x and 5.0.
 	gem 'rspec-rails', '~> 3.5'
+
+	gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do

@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 describe UsersController, :type => :controller do |variable|
-	let(:user1) { User.create!(email: 'johncena@example.com', password: '123456') }
-	let(:user2) { User.create!(email: 'johncena@example2.com', password: '1234567') }
+
+user1 = FactoryGirl.create(:user)
+user2 = FactoryGirl.create(:user)
+	# let(:user1) { User.create!(email: 'johncena@example.com', password: '123456') }
+	# let(:user2) { User.create!(email: 'johncena@example2.com', password: '1234567') }
 
 	describe 'GET #show' do
 		context 'User is logged in' do
