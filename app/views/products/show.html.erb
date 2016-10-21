@@ -7,10 +7,13 @@
 			<h4><strong><%= @product.brand %></strong> <small> / <%= @product.category %></small></h4>
 			<h2><%= @product.name %></h2>
 			Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div>
-			$<%= @product.price %></br>
+			$<%= @product.price_in_cents %></br>
 			<strong>Size:</strong><%= @product.size %></br>
 			[Placeholder - ADD TO CART BUTTON]</br>
 			[Placeholder - ADD TO WISHLIST BUTTON]</br>
+			<%= form_tag "/payments/create" do %>
+				<%= render partial: "shared/stripe_checkout_button" %>
+			<% end %>
 			<div class="detailed_info">
 			<!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">

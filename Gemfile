@@ -69,3 +69,5 @@ gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 gem 'rails-controller-testing'
+
+gem 'stripe'

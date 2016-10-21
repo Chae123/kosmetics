@@ -1,0 +1,10 @@
+	<script
+		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-amount="<%= number_with_precision((@product.price_in_cents), :precision => 2) %>"
+		data-name="<%= @product.brand %>"
+		data-description="<%= @product.name %>"
+		data-image="<%= image_tag(@product.image_url) %>"
+		data-locale="auto"
+		data-currency="eur" >
+	</script>
