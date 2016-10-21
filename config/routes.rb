@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	resources :payments
 	devise_for :users, :controllers => { :registrations => "user_registrations"}
 
 	resources :users

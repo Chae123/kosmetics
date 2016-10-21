@@ -11,9 +11,12 @@
 			<strong>Size:</strong><%= @product.size %></br>
 			[Placeholder - ADD TO CART BUTTON]</br>
 			[Placeholder - ADD TO WISHLIST BUTTON]</br>
-			<%= form_tag "/payments/create" do %>
+
+			<%= form_tag "/payments" do %>
 				<%= render partial: "shared/stripe_checkout_button" %>
+				<%= hidden_field_tag(:product_id, @product.id) %>
 			<% end %>
+			
 			<div class="detailed_info">
 			<!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
