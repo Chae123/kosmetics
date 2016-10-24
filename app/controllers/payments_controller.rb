@@ -7,7 +7,7 @@ class PaymentsController < InheritedResources::Base
 		begin
 			charge = Stripe::Charge.create(
 				:amount => @product.price_in_cents, # amount in cents, again
-				:currency => "eur",
+				:currency => "usd",
 				:source => token,
 				:description => params[:stripeEmail]
 			)

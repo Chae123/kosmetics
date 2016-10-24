@@ -44,13 +44,13 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SKIN CARE <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Cleanser</a></li>
-							<li><a href="#">Face Moisturizer</a></li>
-							<li><a href="#">Serum</a></li>
-							<li><a href="#">Face Mask</a></li>
-							<li><a href="#">Sheet Mask</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">All Products</a></li>
+							<%- Category.all.each do |category| %>
+								<li>
+									<%= link_to category.name, products_path(category: category.name)%>
+								</li>
+								<%- end %> 
+								<li role="separator" class="divider"></li>
+								<li><a href="#">All Products</a></li>
 						</ul>
 					</li>
 					<li><%= link_to "OUR BRANDS", static_pages_brands_path %></li>
@@ -66,7 +66,8 @@
 					<% if user_signed_in? %>
 						<%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-sm btn-default") %>
 					<% else %>
-						<%= button_to('Login', new_user_session_path, class: "btn btn-sm btn-primary") %>
+						<li><%= button_to('Sign up', new_user_registration_path, class: "btn btn-sm btn-default") %></li>
+						<li><%= button_to('Login', new_user_session_path, class: "btn btn-sm btn-primary") %></li>
 					<% end %>
 					</li>
 					</ul>

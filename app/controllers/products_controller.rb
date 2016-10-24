@@ -4,22 +4,25 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
-		@products = Product.all
-		if params[:q]
-			search_term = params[:q]
-			@products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
-			@products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
-		# return our filtered list here
-		else
-			@products = Product.all
-		end
+			if params[:category]
+					 @products = Product.includes(:category).where(categories: {name: params[:category]})
+			else
+				if params[:q]
+			 search_term = params[:q]
+			 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
+			 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+			 else
+			 @products = Product.all
+			 end
+			end
 	end
 
 	# GET /products/1
-	# GET /products/1.json
+	# GET /products/1.jsono
 	def show
 		@comments = @product.comments.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
+
 
 	# GET /products/new
 	def new
