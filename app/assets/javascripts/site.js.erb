@@ -1,7 +1,5 @@
 // Alert messages
-
-// Rating Stars
-$(document).on('turbolinks:load', function(){
+var refreshRating = function() {
 $('.rating').raty( {
     scoreName: 'comment[rating]',
   starHalf        : '<%= image_path('star-half.png') %>',
@@ -17,13 +15,15 @@ starOn          : '<%= image_path('star-on.png') %>',
            return $(this).attr('data-score');
        }
    });
-});
+};
 
+// Rating Stars
 $('#myTabs a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
 });
 
-$(document).on('turbolinks:load', function () {
+$(document).on('turbolinks:load ajaxSuccess', function () {
+  refreshRating();
   $('.image-zoom').elevateZoom();
 });
