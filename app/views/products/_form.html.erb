@@ -23,7 +23,7 @@
 
 	<div class="field">
 		<%= f.label :category_id %>
-		<%= f.text_field :category_id, class: "form-control" %>
+		<%= f.select :category_id, Category.all.collect{|u| [u.name, u.id]} %>
 	</div>
 
 	<div class="field">
