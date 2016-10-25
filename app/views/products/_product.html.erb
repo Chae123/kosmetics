@@ -1,3 +1,4 @@
+<% cache product do %>
 <div class="col-sm-2 col-md-4">
 	<%= link_to product do %>
 		<%= image_tag(product.image_url, class: "img-responsive") unless product.image_url.blank? %>
@@ -10,3 +11,4 @@
 	<strong><%= product.name %></strong><br>
 	<strong>$<%= product.price_in_cents %></strong>
 </div><!-- /col -->
+<% end %>

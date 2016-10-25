@@ -1,7 +1,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-md-6">
+		<% cache @product do %>
 			<%= image_tag(@product.image_url, class: "thumbnail image-zoom", data_zoom_image: "#{@product.image_url}") %>
+		<% end %>
 		</div>
 		<div class="col-xs-6 col-md-6">
 			<h4><strong><%= @product.brand %></strong> <small> / <%= @product.category %></small></h4>
