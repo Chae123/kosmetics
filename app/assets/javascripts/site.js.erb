@@ -25,5 +25,6 @@ $('#myTabs a').click(function (e) {
 
 $(document).on('turbolinks:load ajaxSuccess', function () {
   refreshRating();
+  
   $('.image-zoom').elevateZoom();
 });

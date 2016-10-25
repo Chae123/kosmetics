@@ -1,5 +1,7 @@
 <div class="product-reviews">
 	<% @comments.each do |comment| %>
-		$('.product-reviews').prepend("<%= j render @comments %>");
+		<%= render partial: "comments/comment", locals: {
+			comment: comment
+		}%>
 	<% end %>
 </div> 
