@@ -1,7 +1,5 @@
 <div class="product-reviews">
 	<% @comments.each do |comment| %>
-		<div class="row">
-			$('.product-reviews').prepend("<%= j render @comments %>");
-		</div>
+		$('.product-reviews').prepend("<%= j render @comments %>");
 	<% end %>
 </div> 
