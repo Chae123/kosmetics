@@ -93,4 +93,7 @@ config.cache_store = :dalli_store,
 
 	# Do not dump schema after migrations.
 	config.active_record.dump_schema_after_migration = false
+
+	config.web_socket_server_url = "wss://koreancosmetics.herokuapp.com/cable"
+config.action_cable.allowed_request_origins = ['https://koreancosmetics.herokuapp.com', 'http://koreancosmetics.herokuapp.com']
 end

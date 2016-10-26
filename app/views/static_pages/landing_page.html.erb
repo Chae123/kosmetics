@@ -14,7 +14,7 @@
 		<div class="item <%= " active" if product == @products.first %>">
 			<%= image_tag(product.image_url) %>
 			<div class="carousel-caption">
-				<%= product.name %>
+				<p><%= product.name %></p>
 			</div>
 		</div>
 		<% end %>
