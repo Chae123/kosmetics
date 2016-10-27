@@ -55,12 +55,15 @@
 					</li>
 					<li><%= link_to "OUR BRANDS", static_pages_brands_path %></li>
 					<li><%= link_to "ABOUTS US", static_pages_about_path %></li>
+					<!-- Search Form -->
 					<form class="navbar-form navbar-left">
-						<%= form_tag("/products", method: "get") do %>
+						<%= form_tag(products_path,{ :method=> :get}) do %>
 						<%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search for:") %>
 						<%= submit_tag("Search", class: "btn btn-default") %>
 						<% end %>
 					</form>
+
+					<!-- Devise Actions -->
 					<ul class="nav navbar-nav nabvar-right" id="nav_login_btn">
 					<li>
 					<% if user_signed_in? %>
