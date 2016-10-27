@@ -7,19 +7,28 @@ class ProductsController < ApplicationController
 	 if params[:category]
 			 puts "Filter Category Present"
 			 puts "query: #{params[:category]}"
-					@products = Product.includes(:category).where(categories: {name: params[:category]})
+
+					Rails.cache.fetch("#{params[:category]}/category", expires_in: 12.hours) do
+									@products = Product.includes(:category).where(categories: {name: params[:category]})
+					end
 	 else
 		 if params[:q]
 						puts "Filter Search Present"
 						puts "query: #{params[:q]}"
 							search_term = params[:q]
-						@products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
-						@products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+
+							Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
+					 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
+					 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+						end
 				else
 						puts "No Filter Present"
-						@products = Product.all
+
+							Rails.cache.fetch("/all", expires_in: 12.hours) do
+								 @products = Product.all
+							end
+			end
 		end
-	 end
 	end
 
 	# GET /products/1
