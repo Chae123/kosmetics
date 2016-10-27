@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
 			 puts "Filter Category Present"
 			 puts "query: #{params[:category]}"
 
-					Rails.cache.fetch("#{params[:category]}/category", expires_in: 12.hours) do
-									@products = Product.includes(:category).where(categories: {name: params[:category]})
+					@products = Rails.cache.fetch("#{params[:category]}/category", expires_in: 12.hours) do
+				Product.includes(:category).where(categories: {name: params[:category]})
 					end
 	 else
 		 if params[:q]
@@ -17,18 +17,18 @@ class ProductsController < ApplicationController
 						puts "query: #{params[:q]}"
 							search_term = params[:q]
 
-							Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
-					 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
-					 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+							 @products = Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
+				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
+				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
 						end
 				else
 						puts "No Filter Present"
 
-							Rails.cache.fetch("/all", expires_in: 12.hours) do
-								 @products = Product.all
+							@products = Rails.cache.fetch("/all", expires_in: 12.hours) do
+									Product.all
 							end
-			end
 		end
+	 end
 	end
 
 	# GET /products/1
