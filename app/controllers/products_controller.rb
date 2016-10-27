@@ -4,17 +4,22 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
-			if params[:category]
-					 @products = Product.includes(:category).where(categories: {name: params[:category]})
-			else
-				if params[:q]
-			 search_term = params[:q]
-			 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
-			 @products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
-			 else
-			 @products = Product.all
-			 end
-			end
+	 if params[:category]
+			 puts "Filter Category Present"
+			 puts "query: #{params[:category]}"
+					@products = Product.includes(:category).where(categories: {name: params[:category]})
+	 else
+		 if params[:q]
+						puts "Filter Search Present"
+						puts "query: #{params[:q]}"
+							search_term = params[:q]
+						@products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
+						@products = Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+				else
+						puts "No Filter Present"
+						@products = Product.all
+		end
+	 end
 	end
 
 	# GET /products/1
