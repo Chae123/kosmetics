@@ -1,5 +1,8 @@
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
 <div class="container">
-	<div class="row">
+	<div class="row" data-product-id="<% @product.id %>">
 		<div class="col-xs-6 col-md-6">
 		<% cache @product do %>
 			<%= image_tag(@product.image_url, class: "thumbnail image-zoom", data_zoom_image: "#{@product.image_url}") %>
@@ -46,6 +49,3 @@
 		</div>
 	</div>
 </div>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>

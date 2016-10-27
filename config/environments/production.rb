@@ -95,5 +95,5 @@ config.cache_store = :dalli_store,
 	config.active_record.dump_schema_after_migration = false
 
 	config.web_socket_server_url = "wss://koreancosmetics.herokuapp.com/cable"
-config.action_cable.allowed_request_origins = ['https://koreancosmetics.herokuapp.com', 'http://koreancosmetics.herokuapp.com']
+	config.action_cable.allowed_request_origins = ['https://koreancosmetics.herokuapp.com', 'http://koreancosmetics.herokuapp.com']
 end
