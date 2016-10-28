@@ -42,10 +42,10 @@
 }
 
 /*footer*/
-// footer
+
 .content {
 	min-height: calc(100vh - 1500px);
-	// viewport height minus height of footer
+/*	viewport height minus height of footer*/
 }
 
 .small-footer {
