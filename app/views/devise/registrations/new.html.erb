@@ -4,8 +4,17 @@
 	<%= devise_error_messages! %>
 
 	<div class="field">
+		<%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
+	</div>
+
+		<div class="field">
+		<%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name" %>
+	</div>
+
+	<div class="field">
 		<%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email Address" %>
 	</div>
+	
 	<div class="field">
 		<% if @minimum_password_length %>
 			<em>Password (<%= @minimum_password_length %> characters minimum)</em>

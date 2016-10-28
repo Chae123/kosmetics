@@ -44,7 +44,7 @@
 /*footer*/
 
 .content {
-	min-height: calc(100vh - 1500px);
+	min-height: calc(100vh - 50px);
 /*	viewport height minus height of footer*/
 }
 
