@@ -4,6 +4,7 @@
 		<title>Kosmetics</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
 		<%= csrf_meta_tags %>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -35,12 +36,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">Brand</a>
+				<a class="navbar-brand" href="/">K-osmetics</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><%= link_to "BEST SELLER", products_path %><span class="sr-only">(current)</span></a></li>
+					<li><%= link_to "BEST SELLER", static_pages_landing_page_path %><span class="sr-only">(current)</span></a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SKIN CARE <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -54,12 +55,12 @@
 						</ul>
 					</li>
 					<li><%= link_to "OUR BRANDS", static_pages_brands_path %></li>
-					<li><%= link_to "ABOUTS US", static_pages_about_path %></li>
+					<li><%= link_to "OUR STORY", static_pages_about_path %></li>
 					
 					<!-- Search Form -->
 						<%= form_tag("/products",method: :get, class: "navbar-form navbar-left") do -%>
 						<div class="form-group">
-							<%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search for:") %>
+							<%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search") %>
 						</div>
 							<%= submit_tag("Search", class: "btn btn-default") %>
 						<% end -%>
@@ -83,9 +84,42 @@
 
 	<%= yield %>
 
-	<footer class="page-footer">
+<!-- 	<footer class="page-footer">
 		&copy; 2016 Chae
-	</footer>
+	</footer> -->
+
+	<!-- Begin Footer Area -->
+<footer class="container-fluid">
+	<div class="container-fluid">
+		<div class="row big-footer">
+			<div class="col-md-6 col-xs-12 text-xs-center footer-col">
+				<h5 class="text-muted">SUBSCRIBE TO OUR NEWSLETTER</h5>
+				<form class="form-inline">
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail3">Enter Your Email Address</label>
+						<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Your Email Address">
+					</div>
+					<button type="submit" class="btn btn-primary">Join</button>
+				</form>
+			</div>
+			<div class="col-md-6 col-xs-12 text-xs-center">
+				<h5 class="text-muted">CONNECT WITH US</h5>
+				<nav class="nav nav-inline">
+					<a class="nav-link fa fa-facebook-official fa-3x" href="#"></a>
+					<a class="nav-link fa fa-instagram fa-3x" href="#"></a>
+					<a class="nav-link fa fa-envelope fa-3x" href="#"></a>
+				</nav>
+			</div>
+		</div>
+		<div class="row small-footer">
+			<div class="col-md-12 text-xs-center text-muted">
+			Copyright &copy; 2016 KoreanCosmetics
+			</div>
+		</div>
+	</div>
+</footer> <!-- /footer area -->
+
+
 
 		<!-- ============================= -->
 		<!-- All your JavaScript comes now -->

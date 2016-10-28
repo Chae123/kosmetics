@@ -14,6 +14,7 @@
  *= require_self
  */
 
+/*navbar*/
 .navbar-default {
 	background-color: #a6e0cc;
 }
@@ -38,4 +39,35 @@
 #nav_login_btn {
 	margin-top: 8px;
 	margin-right: 27px;
+}
+
+/*footer*/
+// footer
+.content {
+	min-height: calc(100vh - 1500px);
+	// viewport height minus height of footer
+}
+
+.footer {
+	height: 100px;
+}
+
+.small-footer {
+	border-top: 1px solid #d8d8d8;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.big-footer {
+	// margin-top: 20px;
+	border-top: 1px solid #d8d8d8;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.footer-col {
+	border-right: 1px solid #d8d8d8;
+	height: 68px;
 }
