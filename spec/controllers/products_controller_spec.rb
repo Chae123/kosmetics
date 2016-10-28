@@ -104,7 +104,7 @@ describe ProductsController, :type => :controller do
 
 	describe "PATCH #update" do
 		before :each do
-			@product = create(:product, name: "Cream", price_in_cents: 10000)
+			@product = create(:product, name: "Cream", price: 100)
 		end
 
 		context "with valid attributes" do
@@ -115,10 +115,10 @@ describe ProductsController, :type => :controller do
 
 			it "updates the product in the database" do
 				patch :update, id: @product, product: attributes_for(:product,
-					name: "Cream", price_in_cents: 10000)
+					name: "Cream", price: 100)
 				@product.reload
 				expect(@product.name).to eq("Cream")
-				expect(@product.price_in_cents).to eq(10000)
+				expect(@product.price).to eq(100)
 			end
 
 			it "redirects to the updated product" do

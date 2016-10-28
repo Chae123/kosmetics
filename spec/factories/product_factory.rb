@@ -7,7 +7,7 @@ FactoryGirl.define do
 	name
 	description "Awesome skin care product"
 	image_url "products/sample_image.jpg"
-	price_in_cents 5000
+	price 50
 
 		factory :invalid_product do
 			name nil

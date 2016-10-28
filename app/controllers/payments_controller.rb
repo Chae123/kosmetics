@@ -6,7 +6,7 @@ class PaymentsController < InheritedResources::Base
 		# Create the charge on Stripe's servers - this will charge the user's card
 		begin
 			charge = Stripe::Charge.create(
-				:amount => @product.price_in_cents, # amount in cents, again
+				:amount => (@product.price*100), # amount in cents, again
 				:currency => "usd",
 				:source => token,
 				:description => params[:stripeEmail]
@@ -16,8 +16,10 @@ class PaymentsController < InheritedResources::Base
 			Order.create!(
 				product_id: @product.id,
 				user_id: @user_id,
-				total: (@product.price_in_cents / 100)
+				total: @product.price
 				)
+				UserMailer.paid_success(@user, @product).deliver_now
+				flash[:success] = "Payment processed successfully"
 		end
 
 		rescue Stripe::CardError => e
@@ -26,7 +28,7 @@ class PaymentsController < InheritedResources::Base
 			err = body[:error]
 			flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
 		end
-		redirect_to product_path(@product)
+		redirect_to products_path(@product)
 	end
 
 	private
