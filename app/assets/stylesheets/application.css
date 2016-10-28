@@ -48,10 +48,6 @@
 	// viewport height minus height of footer
 }
 
-.footer {
-	height: 100px;
-}
-
 .small-footer {
 	border-top: 1px solid #d8d8d8;
 	padding-top: 10px;
@@ -69,5 +65,5 @@
 
 .footer-col {
 	border-right: 1px solid #d8d8d8;
-	height: 68px;
+	height: 70px;
 }
