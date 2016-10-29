@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 						puts "query: #{params[:q]}"
 							search_term = params[:q]
 
-							 @products = Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
+							@products = Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
 				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
 				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
 						end

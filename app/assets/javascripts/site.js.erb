@@ -1,20 +1,21 @@
 // Alert messages
 var refreshRating = function() {
 $('.rating').raty( {
-		scoreName: 'comment[rating]',
-	starHalf        : '<%= image_path('star-half.png') %>',
-	starOff         : '<%= image_path('star-off.png') %>',
-	starOn          : '<%= image_path('star-on.png') %>'
+	scoreName: 'comment[rating]',
+	starHalf: '<%= image_path('star-half.png') %>',
+	starOff: '<%= image_path('star-off.png') %>',
+	starOn: '<%= image_path('star-on.png') %>'
 });
+
 $('.rated').raty({ 
-		readOnly: true,
-starHalf        : '<%= image_path('star-half.png') %>',
-starOff         : '<%= image_path('star-off.png') %>',
-starOn          : '<%= image_path('star-on.png') %>',
-			 score: function() {
-					 return $(this).attr('data-score');
-			 }
-	 });
+	readOnly: true,
+	starHalf: '<%= image_path('star-half.png') %>',
+	starOff: '<%= image_path('star-off.png') %>',
+	starOn: '<%= image_path('star-on.png') %>',
+	score: function() {
+ return $(this).attr('data-score');
+	 }
+ });
 };
 
 // Rating Stars
@@ -27,8 +28,8 @@ $(document).on('turbolinks:load ajaxSuccess', function () {
 	refreshRating();
 	
 	$('.image-zoom').elevateZoom({
-			zoomType: "lens",
-			lensShape: "round",
-			lensSize: 200
+		zoomType: "lens",
+		lensShape: "round",
+		lensSize: 200
 	});
 });
