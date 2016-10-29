@@ -27,22 +27,12 @@
 	color: 	white;
 }
 
-.page-footer {
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	left: 0px;
-	background-color: #a6e0cc;
-	height: 45px;
-}
-
 #nav_login_btn {
-	margin-top: 8px;
-	margin-right: 27px;
+	margin: 8px 10px 0 1px;
 }
 
-/*navbar collapse breakpoint when the browser is below 1045px*/
-@media (max-width: 1045px) {
+/*navbar collapse breakpoint when the browser is below 1030px*/
+@media (max-width: 1030px) {
 .navbar-header {
     float: none;
 }

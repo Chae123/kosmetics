@@ -58,7 +58,7 @@
 						<% end -%>
 
 					<!-- Devise Actions -->
-						<ul class="nav navbar-nav nabvar-right" id="nav_login_btn">
+						<ul class="nav nav-pills pull-right" id="nav_login_btn">
 						<li>
 						<% if user_signed_in? %>
 							<%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-sm btn-default") %>
