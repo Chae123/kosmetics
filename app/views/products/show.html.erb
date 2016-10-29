@@ -11,7 +11,7 @@
 		<% end %>
 		</div>
 		<div class="col-xs-12 col-md-12 col-lg-6">
-			<h4><strong><%= @product.brand %></strong> <small> / <%= @product.category %></small></h4>
+			<h4><strong><%= @product.brand %></strong> <small> / <%= @product.category.name %></small></h4>
 			<h2><%= @product.name %></h2>
 			Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div>
 			$<%= @product.price %></br>
@@ -24,7 +24,7 @@
 				<%= hidden_field_tag(:product_id, @product.id) %>
 			<% end %>
 			
-			<div class="col-xs-12 col-md-12 col-lg-6" id="detailed_info">
+			<div class="col-xs-12 col-md-12 col-lg-12" id="detailed_info">
 			<!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
 					<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
