@@ -18,8 +18,8 @@ class ProductsController < ApplicationController
 							search_term = params[:q]
 
 							@products = Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
-				 Product.where("name ilike ? OR brand ilike ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
-				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
+				 Product.where("name ilike ? OR brand ilike ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
 						end
 				else
 					puts "No Filter Present"
