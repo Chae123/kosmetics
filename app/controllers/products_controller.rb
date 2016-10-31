@@ -4,32 +4,34 @@ class ProductsController < ApplicationController
 	# GET /products
 	# GET /products.json
 	def index
-	 if params[:category]
-			 puts "Filter Category Present"
-			 puts "query: #{params[:category]}"
+		if params[:category]
+			puts "Filter Category Present"
+			puts "query: #{params[:category]}"
 
-					@products = Rails.cache.fetch("#{params[:category]}/category", expires_in: 12.hours) do
+				@products = Rails.cache.fetch("#{params[:category]}/category", expires_in: 12.hours) do
 				Product.includes(:category).where(categories: {name: params[:category]})
-					end
-	 else
-		 if params[:q]
-						puts "Filter Search Present"
-						puts "query: #{params[:q]}"
-							search_term = params[:q]
+				end
+		else
+			if params[:q]
+				puts "Filter Search Present"
+				puts "query: #{params[:q]}"
+				search_term = params[:q]
 
-							@products = Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
-				 Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
-				 Product.where("name ilike ? OR brand ilike ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
-						end
-				else
-					puts "No Filter Present"
-
-						@products = Rails.cache.fetch("/all", expires_in: 12.hours) do
-								Product.all
-						end
+				@products = Rails.cache.fetch("#{params[:q]}/search", expires_in: 12.hours) do
+					Product.where("name LIKE ? OR brand LIKE ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.development?
+					Product.where("name ilike ? OR brand ilike ?", "%#{search_term}%", "%#{search_term}%") if Rails.env.production?
+				end
+				
+				@products = Product.all if @products.blank?
+			else
+				puts "No Filter Present"
+				@products = Rails.cache.fetch("/all", expires_in: 12.hours) do
+					Product.all
+				end
+			end
 		end
-	 end
 	end
+
 
 	# GET /products/1
 	# GET /products/1.jsono
